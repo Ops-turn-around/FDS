@@ -1,5 +1,9 @@
 import copy
 arr1=[]
+def swap(a,b):
+    temp=a
+    a=b
+    b=temp
 s1=int(int(input("Enter the number of elements in the array : ")))
 for i in range(s1):
     x=int(input("Enter element %d : "%(i+1)))
@@ -13,16 +17,14 @@ def bubble_sort(arr):
                 arr1[j]=arr1[j+1]
                 arr1[j+1]=temp
     return arr1
-def selection_sort(arr):
-    arr1=copy.copy(arr)
+def selection(arr):
     for i in range(len(arr)-1):
         min=arr[i]
-        for j in range(i,len(arr)):
-            if(arr1[j]<min):
-                min=arr1[j]
+        min_id=-1
+        for j in range(i+1,len(arr)):
+            if(arr[j]<min):
+                min=arr[j]
                 min_id=j
-        var=arr1[min_id]
-        arr1[min_id]=arr1[i]
-        arr1[i]=var
-    return arr1
-print(selection_sort(arr1))
+        (arr[min_id],arr[i])=(arr[i],arr[min_id])
+    return arr
+print(selection(arr1))
