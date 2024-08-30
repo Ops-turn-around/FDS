@@ -27,4 +27,13 @@ def selection(arr):
                 min_id=j
         (arr[min_id],arr[i])=(arr[i],arr[min_id])
     return arr
-print(selection(arr1))
+def insertion(arr):
+    for i in range(1,len(arr)):
+        j=i-1
+        val=arr[i]
+        while(j>=0 and arr[j]>val):
+            arr[j+1]=arr[j]
+            j-=1
+        arr[j+1]=val
+    return arr
+print(insertion(arr1))
